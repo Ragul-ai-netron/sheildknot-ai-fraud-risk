@@ -168,7 +168,7 @@ Outcome Recording
 
 ---
 
-## 💻 Run Locally
+## Run Locally 💻
 
 No build step is required for the current frontend prototype.
 
