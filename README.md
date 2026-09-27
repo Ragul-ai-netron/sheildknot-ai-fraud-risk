@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/Ragul-ai-netron/sheildknot-ai-fraud-risk">📦 Repository</a>
   &nbsp;•&nbsp;
-  <a href="#run-locally">💻 Run Locally</a>
+  <a href="https://ragul-ai-netron.github.io/sheildknot-ai-fraud-risk/">🚀 Live Demo</a>
   &nbsp;•&nbsp;
   <a href="#safety--authorization-design">🔐 Safety Design</a>
 </p>
