@@ -1,64 +1,265 @@
-# ShieldKnot AI — Fraud Spike Intercept
+# 🛡️ ShieldKnot AI — Fraud Spike Intercept
 
-**Razorpay Buildathon — Track 02: AI Risk Manager**
+<p align="center">
+  <strong>Defense-only AI fraud risk operations prototype</strong><br>
+  Detect spikes. Investigate evidence. Recommend defensively. Keep humans in control.
+</p>
 
-ShieldKnot AI is a defense-only fraud risk operations prototype focused on detecting emerging fraud spikes, investigating them with specialized AI agents, generating evidence-backed recommendations, and keeping final actions behind deterministic safeguards and human authorization.
+<p align="center">
+  <a href="https://github.com/Ragul-ai-netron/sheildknot-ai-fraud-risk">📦 Repository</a>
+  &nbsp;•&nbsp;
+  <a href="#run-locally">💻 Run Locally</a>
+  &nbsp;•&nbsp;
+  <a href="#safety--authorization-design">🔐 Safety Design</a>
+</p>
 
-## What it does
+> **Razorpay Buildathon — Track 02: AI Risk Manager**
 
-1. **Ingest & score** — transactions receive calibrated fraud-risk scores.
-2. **Detect spikes** — rolling risk-density is compared with a baseline; abnormal density lift creates an incident.
-3. **Investigate** — six specialized investigators analyze channel, device, tenure, geography, velocity, and amount patterns.
-4. **Recommend** — the system produces ranked defensive actions with evidence-linked provenance.
-5. **Safeguard** — a deterministic policy layer gates recommendations; human review is required.
-6. **Record outcomes** — reviewers record the operational result and verified financial impact.
+---
 
-## Held-out metrics
+## 🎯 What Problem It Solves
 
-- Precision: **0.87**
-- Recall: **0.92**
-- F1: **0.89**
-- Average false-positive cost: **₹400**
+Fraud teams can face sudden changes in fraud-risk density across channels, devices, geographies, customer tenure, transaction velocity, and transaction amounts.
 
-## Safety
+**ShieldKnot AI** is a prototype for a defensive workflow that helps surface emerging risk spikes, investigate them from multiple perspectives, and produce evidence-backed recommendations while keeping final decisions behind deterministic safeguards and human authorization.
 
-ShieldKnot is strictly defense-only. Auto-block is disabled by default, every action requires human authorization, and the deterministic policy engine acts as the final gate.
+---
 
-## Run locally
+## ⚙️ How the System Works
+
+```text
+Transaction Data
+       │
+       ▼
+┌──────────────────┐
+│ Risk Scoring     │
+└────────┬─────────┘
+         ▼
+┌──────────────────┐
+│ Spike Detection  │
+│ vs. Baseline     │
+└────────┬─────────┘
+         ▼
+┌────────────────────────────────────┐
+│ Specialized Investigation Agents   │
+│                                    │
+│ Channel • Device • Tenure          │
+│ Geography • Velocity • Amount      │
+└────────────────┬───────────────────┘
+                 ▼
+┌────────────────────────────────────┐
+│ Evidence-backed Recommendations    │
+└────────────────┬───────────────────┘
+                 ▼
+┌────────────────────────────────────┐
+│ Deterministic Policy Safeguard     │
+└────────────────┬───────────────────┘
+                 ▼
+┌────────────────────────────────────┐
+│ Human Authorization                │
+└────────────────┬───────────────────┘
+                 ▼
+┌────────────────────────────────────┐
+│ Outcome + Verified Impact Record   │
+└────────────────────────────────────┘
+```
+
+### 1. Ingest & Score
+Transactions receive calibrated fraud-risk scores.
+
+### 2. Detect Spikes
+Rolling risk density is compared with a baseline. Abnormal density lift creates an incident for investigation.
+
+### 3. Investigate
+Six specialized investigators examine different dimensions:
+
+- 📡 Channel
+- 💻 Device
+- 👤 Tenure
+- 🌍 Geography
+- ⚡ Velocity
+- 💰 Amount
+
+### 4. Recommend
+The system generates defensive recommendations with evidence-linked provenance.
+
+### 5. Safeguard
+A deterministic policy layer gates recommendations before any operational action.
+
+### 6. Record Outcomes
+Human reviewers record the operational result and verified financial impact.
+
+---
+
+## 🤖 Specialized AI Investigation
+
+The investigation workflow separates the problem into focused perspectives rather than relying on one undifferentiated analysis.
+
+| Investigator | Focus |
+|---|---|
+| Channel | Risk changes across transaction channels |
+| Device | Device-level anomaly patterns |
+| Tenure | Customer/account age patterns |
+| Geography | Geographic concentration and shifts |
+| Velocity | Rapid transaction behavior |
+| Amount | Transaction-value anomalies |
+
+---
+
+## 📊 Evaluation Metrics
+
+**Project-reported held-out evaluation results:**
+
+| Metric | Result |
+|---|---:|
+| Precision | **0.87** |
+| Recall | **0.92** |
+| F1 Score | **0.89** |
+| Average false-positive cost | **₹400** |
+
+These values describe the project's reported evaluation results and should not be interpreted as production-system guarantees.
+
+---
+
+## 🔐 Safety & Authorization Design
+
+ShieldKnot is designed as a **defense-only prototype**.
+
+- 🚫 Auto-block is disabled by default.
+- 👤 Final actions require human authorization.
+- 🧱 A deterministic policy layer acts as the final gate.
+- 🔎 Recommendations are backed by investigation evidence.
+- 🔑 The demo contains no production credentials or API keys.
+- 🧪 The sign-in screen is a presentation/demo gate, not production authentication.
+
+The design intentionally separates **AI-generated investigation/recommendation** from **authorized operational action**.
+
+---
+
+## 🖥️ Demo / Results
+
+The current project is a browser-based frontend prototype demonstrating the ShieldKnot workflow.
+
+### Demo flow
+
+```text
+Sign-in / Demo Gate
+        ↓
+Risk Overview
+        ↓
+Fraud Spike Detection
+        ↓
+Incident Investigation
+        ↓
+Evidence & Agent Findings
+        ↓
+Defensive Recommendation
+        ↓
+Policy Gate
+        ↓
+Human Authorization
+        ↓
+Outcome Recording
+```
+
+> The prototype demonstrates the workflow and interface. It is not presented as production fraud infrastructure.
+
+---
+
+## 💻 Run Locally
 
 No build step is required for the current frontend prototype.
 
+### Clone
+
 ```bash
-git clone https://github.com/YOUR_USERNAME/shieldknot-ai-fraud-risk.git
-cd shieldknot-ai-fraud-risk
+git clone https://github.com/Ragul-ai-netron/sheildknot-ai-fraud-risk.git
+cd sheildknot-ai-fraud-risk
 ```
 
-Then open `index.html` in a browser.
+### Start localhost
 
-For a local HTTP server:
+Recommended:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000`.
+Then open:
 
-## GitHub Pages
+**http://localhost:8000**
 
-1. Push this repository to GitHub.
-2. Open **Settings → Pages**.
-3. Select **Deploy from a branch**.
-4. Choose `main` and `/ (root)`.
-5. Save and use the generated GitHub Pages URL as the live demo.
+On Windows, if `python3` is not recognized:
 
-## Project structure
+```bash
+python -m http.server 8000
+```
+
+Stop the server with:
 
 ```text
-shieldknot-ai-fraud-risk/
+Ctrl + C
+```
+
+> The localhost server only serves the frontend prototype. It does not provide production authentication, a backend API, or real fraud-processing infrastructure.
+
+---
+
+## 🌐 GitHub Pages
+
+To publish the frontend with GitHub Pages:
+
+1. Open the repository's **Settings**.
+2. Select **Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select the `main` branch.
+5. Select `/ (root)`.
+6. Click **Save**.
+7. Open the generated Pages URL.
+
+If your Pages site is already enabled, add its URL to the button at the top of this README.
+
+---
+
+## 📁 Project Structure
+
+```text
+sheildknot-ai-fraud-risk/
 ├── index.html
 └── README.md
 ```
 
-## Demo note
+---
 
-The sign-in screen is a presentation/demo gate only. It does not authenticate against a backend and contains no production credentials or API keys.
+## 🧪 Project Scope
+
+ShieldKnot is a **prototype for defensive fraud-risk intelligence**.
+
+It demonstrates:
+
+- Fraud-risk spike detection
+- Multi-perspective investigation
+- Specialized AI investigation roles
+- Evidence-backed recommendations
+- Deterministic safety controls
+- Human-in-the-loop authorization
+- Operational outcome recording
+- Browser-based deployment
+
+It is not presented as a production fraud-detection or payment-blocking system.
+
+---
+
+## 👨‍💻 Credits
+
+**Ragul // AI Engineer**
+
+Building intelligent systems. Turning ideas into products.
+
+**THIRAZEN™**
+
+---
+
+## 📜 License
+
+Add the project's preferred license here if/when one is selected.
