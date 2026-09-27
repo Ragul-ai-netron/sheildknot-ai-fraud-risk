@@ -1,5 +1,7 @@
 # 🛡️ ShieldKnot AI — Fraud Spike Intercept
 
+![ShieldKnot AI Demo](./shieldknot-ai-demo.gif)
+
 <p align="center">
   <strong>Defense-only AI fraud risk operations prototype</strong><br>
   Detect spikes. Investigate evidence. Recommend defensively. Keep humans in control.
